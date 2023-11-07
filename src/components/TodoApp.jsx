@@ -6,6 +6,7 @@ import Login from "@/routes/Login";
 import Profile from "@/routes/Profile";
 import NotMatch from "@/routes/NotMatch";
 import Layout from "@/components/Layout";
+import SinglePage from "@/routes/SinglePage";
 
 
 const TodoApp = () => {
@@ -17,7 +18,11 @@ const TodoApp = () => {
        <Route index element={<Home  />} />
        <Route
         path="about"
-        element={<About />} />
+        element={<About />}>
+        {/*<Route path="about-app" element={<AboutPage1  />} />
+  <Route path="about-developer" element={<AboutPage2  />} />*/}
+        <Route path=":slug" element={<SinglePage  />} />
+        </Route>
        <Route
         path="login"
         element={<Login />} />

@@ -1,9 +1,30 @@
-import React from 'react';
+import React  from 'react';
+import { useState } from "react";
+import styles from '@/styles/Login.module.css';
 
 function Login() {
+
+const [username, setUsername] = useState('')
+const handleSubmit = (e) => {
+  e.preventDefault()
+  if (!username) return
+  console.log(username)
+}
+
   return (
     <div>
-      Login
+      <h1>Login</h1>
+      <div className={styles.formWrapper}>
+      <form className={styles.form} onSubmit={handleSubmit}>
+      <input
+      type="text"
+      placeholder='username'
+      value={username}
+      onChange={(e) => setUsername(e.target.value)}
+      />
+      <button>Login</button>
+      </form>
+      </div>
     </div>
   );
 }
